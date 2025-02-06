@@ -56,9 +56,18 @@ To get started with this project, follow these steps:
      ```
 
 5. Install the required dependencies:
+
    ```bash
    pip install -r requirements.txt
    ```
+
+6. Create a `.env` file in the project root directory and add your Shadai API key:
+
+   ```plaintext
+   SHADAI_API_KEY=your_api_key_here
+   ```
+
+   Obtain your API key from [dashboard.shadai.ai](https://dashboard.shadai.ai).
 
 ## Usage
 
