@@ -14,7 +14,7 @@ async def main():
         await session.ingest(input_dir=input_dir)
 
         await session.query(
-            query="¿Cual es el valor del credito?", display_in_console=True
+            query="¿Cual es el monto del producto de credito?", display_in_console=True
         )
 
         await session.summarize(display_in_console=True)
