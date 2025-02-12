@@ -22,9 +22,7 @@ This project utilizes Shadai to provide solutions across multiple industries by 
 
 ## Demo Video
 
-[![Watch the demo video](https://cdn.loom.com/sessions/thumbnails/2d8da268f92443fab56b587e0da6c018.gif)](https://www.loom.com/share/2d8da268f92443fab56b587e0da6c018?sid=9fa3f276-9b6f-4ddf-a334-338240129fb7)
-
-> Click the image above to watch the demo video
+[Watch the demo video](https://www.loom.com/share/2d8da268f92443fab56b587e0da6c018?sid=49f00f1c-74a5-4ea1-a6a0-7f0b81127589)
 
 These use cases demonstrate Shadai's versatility in addressing industry-specific challenges and enhancing operational efficiency.
 
