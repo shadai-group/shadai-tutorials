@@ -8,17 +8,64 @@ This project utilizes Shadai to provide solutions across multiple industries by 
 
 - **Healthcare**
 
+We have a solution to analyze a patient's historical data and extract the main information.
+
+Steps:
+
+1. We use our ingest agent to put the patient's historical data inside the session.
+2. We create a tool to get the patient's historical data.
+3. We create a custom agent that use the tool to get the patient's historical data and answer with the actual diagnosis.
+4. We use our query agent to get the specific information of the patient's historical data.
+
 - **Logistics**
+
+We have a solution to create an article using the reports of the year from a logistics company.
+
+Steps:
+
+1. We use our ingest agent to put the reports of the year inside the session.
+2. We use our create article agent to create the article.
 
 - **Oil and Gas**
 
+We have a solution to analyze a equipment of oil and gas and made recommendations for the maintenance.
+
+Steps:
+
+1. We use our ingest agent to put the equipment of oil and gas inside the session.
+2. We create a tool to get the actual status of the equipment of oil and gas.
+3. We create a custom agent that use the tool to get the actual status of the equipment of oil and gas and use our summary agent to made recommendations for the maintenance.
+
 - **Finance**
+
+We create a solution to analyze a credit document and extract the main information.
+
+Steps:
+
+1. We use our ingest agent to put the credit document inside the session.
+2. We use our summary agent to get the summary of the credit document.
+3. We use our query agent to get the specific information of the credit document.
 
 - **Retail**
 
+We have a solution to analyze a catalog of products and extract the main information.
+
+Steps:
+
+1. We use our ingest agent to put the catalog of products inside the session.
+2. We create a tool to get the product details using our query agent.
+3. We create a custom agent that use the tool to get the product details and answer.
+
 - **Education**
 
-- **Marketing**
+We have a english tutor that can help with the generation of test questions for the students depending on the level of the student and the topic of the test that comes from a book about the topic.
+
+Steps:
+
+1. We use our ingest agent to put the book pdf inside the session.
+2. We create a tool to get student level.
+3. We create a custom agent that use the tool to get the student level and our summary agent to get the summary of the book to generate the test questions.
+4. We call the agent with the specific student id.
 
 ## Demo Video
 
@@ -88,9 +135,9 @@ Provide instructions on how to use the project. For example:
 If you would like to contribute to this project, please follow these steps:
 
 1. Fork the repository.
-2. Create a new branch (`git checkout -b usecase/YourUseCase`).
+2. Create a new branch (`git checkout -b folder/YourUseCase`).
 3. Commit your changes (`git commit -m 'Add some use case'`).
-4. Push to the branch (`git push origin usecase/YourUseCase`).
+4. Push to the branch (`git push origin folder/YourUseCase`).
 5. Open a pull request.
 
 ## License
