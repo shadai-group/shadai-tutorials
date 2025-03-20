@@ -67,6 +67,16 @@ Steps:
 3. We create a custom agent that use the tool to get the student level and our summary agent to get the summary of the book to generate the test questions.
 4. We call the agent with the specific student id.
 
+- **Marketing**
+
+We have a solution to create a marketing copy for a new product.
+
+Steps:
+
+1. We use our ingest agent to put the product information inside the session.
+2. We create a chat session with the agent.
+3. We use the chat session to generate the marketing copy doing adjustments until the user is satisfied.
+
 ## Demo Video
 
 [Watch the demo video](https://www.loom.com/share/2d8da268f92443fab56b587e0da6c018?sid=49f00f1c-74a5-4ea1-a6a0-7f0b81127589)
