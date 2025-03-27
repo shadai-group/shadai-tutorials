@@ -1,29 +1,25 @@
-#Resumen de un documento de credito
+# Resumen de un documento de credito
 
 
 import asyncio
 import os
 
-from shadai.core.session import Session
 from shadai.core.agents import ToolAgent
+from shadai.core.session import Session
 
 input_dir = os.path.join(os.path.dirname(__file__), "documents")
 
 
 def generate_test(student_id: str) -> str:
-    
-    student_data = [{
-        "student_id": "12345",
-        "age": 10,
-        "level": "Beginner",
-        "language": "English"
-    },
-    {
-        "student_id": "67890",
-        "age": 12,
-        "level": "Intermediate",
-        "language": "English"
-    }]
+    student_data = [
+        {"student_id": "12345", "age": 10, "level": "Beginner", "language": "English"},
+        {
+            "student_id": "67890",
+            "age": 12,
+            "level": "Intermediate",
+            "language": "English",
+        },
+    ]
     # Extract patient details
     for student in student_data:
         if student["student_id"] == student_id:
@@ -35,10 +31,9 @@ def generate_test(student_id: str) -> str:
     return f"Edad: {age}\nNivel: {level}\nIdioma: {language}"
 
 
-
 async def main():
-    async with Session(type="standard", delete_session=True) as session:
-        await session.ingest(input_dir=input_dir)
+    async with Session(type="standard", delete=True) as session:
+        await session.aingest(input_dir=input_dir)
 
         agent = ToolAgent(
             session=session,
@@ -47,15 +42,14 @@ async def main():
 
                 Información del estudiante:
                 {function_output}
-                
+
                 Información para hacer el test:
                 {summary}
             """,
             use_summary=True,
             function=generate_test,
         )
-        await agent.call(student_id="12345")
-
+        await agent.acall(student_id="12345")
 
 
 if __name__ == "__main__":
