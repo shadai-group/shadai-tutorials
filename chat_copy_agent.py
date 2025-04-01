@@ -25,18 +25,15 @@ for message in st.session_state.messages:
 if input_user := st.chat_input("Write a marketing copy for a new product"):
     with st.chat_message("user"):
         st.markdown(input_user)
-    
-    result = session.chat(
-        message=input_user,
-        system_prompt=agent_copy_prompt
-    )
-    
+
+    result = session.chat(message=input_user, system_prompt=agent_copy_prompt)
+
     with st.chat_message("assistant"):
         st.markdown(result)
     # Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": input_user})
     st.session_state.messages.append({"role": "assistant", "content": result})
-    
+
 if file := st.file_uploader("Upload a file"):
     save_path = os.path.join(os.path.dirname(__file__), "documents", file.name)
     with open(save_path, "wb") as f:
@@ -44,9 +41,7 @@ if file := st.file_uploader("Upload a file"):
     with st.chat_message("user"):
         st.markdown(file)
     try:
-        session.ingest(
-            input_dir=input_dir
-        )
+        session.ingest(input_dir=input_dir)
         st.markdown("File ingested successfully")
     except Exception as e:
         st.error(e)

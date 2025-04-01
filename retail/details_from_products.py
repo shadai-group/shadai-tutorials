@@ -1,9 +1,8 @@
-#Integra conocimiento sobre productos, tendencias de consumo, disponibilidad en inventario y promociones actuales 
+# Integra conocimiento sobre productos, tendencias de consumo, disponibilidad en inventario y promociones actuales
 
 
 import asyncio
 import os
-from typing import Dict
 
 from shadai.core.agents import ToolAgent
 from shadai.core.session import Session
@@ -12,14 +11,14 @@ input_dir = os.path.join(os.path.dirname(__file__), "documents")
 
 
 async def get_product_details(session: Session, product_id: str) -> str:
-    return await session.query(
+    return await session.aquery(
         query=f"Dame los detalles del producto {product_id}", display_in_console=False
     )
 
 
 async def main():
-    async with Session(type="standard", delete_session=True) as session:
-        await session.ingest(input_dir=input_dir)
+    async with Session(type="standard", delete=True) as session:
+        await session.aingest(input_dir=input_dir)
 
         agent = ToolAgent(
             session=session,
@@ -37,10 +36,10 @@ async def main():
             """,
             use_summary=False,
             function=get_product_details,
-            is_async_function=True
+            is_async_function=True,
         )
 
-        await agent.call(session=session, product_id="NC030")
+        await agent.acall(session=session, product_id="NC030")
 
 
 if __name__ == "__main__":
