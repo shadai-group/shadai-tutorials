@@ -41,7 +41,7 @@ def get_oilandgas_details(oilandgas_id: str) -> str:
 
 async def main():
     async with Session(type="standard", delete=True) as session:
-        await session.aingest(input_dir=input_dir)
+        await session.ingest(input_dir=input_dir)
 
         agent = ToolAgent(
             session=session,
@@ -58,7 +58,7 @@ async def main():
             function=get_oilandgas_details,
         )
 
-        await agent.acall(oilandgas_id="1")
+        await agent.call(oilandgas_id="1")
 
 
 if __name__ == "__main__":

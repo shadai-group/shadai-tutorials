@@ -11,14 +11,14 @@ input_dir = os.path.join(os.path.dirname(__file__), "documents")
 
 
 async def get_product_details(session: Session, product_id: str) -> str:
-    return await session.aquery(
+    return await session.query(
         query=f"Dame los detalles del producto {product_id}", display_in_console=False
     )
 
 
 async def main():
     async with Session(type="standard", delete=True) as session:
-        await session.aingest(input_dir=input_dir)
+        await session.ingest(input_dir=input_dir)
 
         agent = ToolAgent(
             session=session,
@@ -39,7 +39,7 @@ async def main():
             is_async_function=True,
         )
 
-        await agent.acall(session=session, product_id="NC030")
+        await agent.call(session=session, product_id="NC030")
 
 
 if __name__ == "__main__":

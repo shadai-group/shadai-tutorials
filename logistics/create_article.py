@@ -11,9 +11,9 @@ input_dir = os.path.join(os.path.dirname(__file__), "documents")
 
 async def main():
     async with Session(type="standard", delete=True) as session:
-        await session.aingest(input_dir=input_dir)
+        await session.ingest(input_dir=input_dir)
 
-        await session.aarticle(
+        await session.article(
             topic="la eficiencia de la cadena de suministro, recomendaciones para mejorar la eficiencia y reducir costos operacionales",
             display_in_console=True,
         )

@@ -14,10 +14,10 @@ You are a helpful assistant that can hep to refine marketing copy.
 
 async def main():
     async with Session(type="standard", delete=True) as session:
-        await session.aingest(input_dir=input_dir)
+        await session.ingest(input_dir=input_dir)
 
         # Initial greeting
-        await session.achat(
+        await session.chat(
             message="I need to write a marketing copy for a new product. Can you help me?",
             system_prompt=agent_copy_prompt,
             display_in_console=True,
@@ -30,7 +30,7 @@ async def main():
             if user_input.lower() in ["exit", "quit"]:
                 print("Ending conversation.")
                 break
-            response = await session.achat(
+            response = await session.chat(
                 message=user_input,
                 system_prompt=agent_copy_prompt,
                 display_in_console=False,

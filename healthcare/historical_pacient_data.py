@@ -42,7 +42,7 @@ def get_patient_details(patient_id: str) -> str:
 
 async def main():
     async with Session(type="standard", delete=True) as session:
-        await session.aingest(input_dir=input_dir)
+        await session.ingest(input_dir=input_dir)
 
         agent = ToolAgent(
             session=session,
@@ -56,9 +56,9 @@ async def main():
             function=get_patient_details,
         )
 
-        await agent.acall(patient_id="12345")
+        await agent.call(patient_id="12345")
 
-        await session.aquery(
+        await session.query(
             query="¿Tienes información del paciente 12345?", display_in_console=True
         )
 
