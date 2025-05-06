@@ -33,8 +33,7 @@ def generate_test(student_id: str) -> str:
 
 async def main():
     async with Session(type="standard", delete=True) as session:
-        await session.aingest(input_dir=input_dir)
-
+        await session.ingest(input_dir=input_dir)
         agent = ToolAgent(
             session=session,
             prompt="""
@@ -49,7 +48,7 @@ async def main():
             use_summary=True,
             function=generate_test,
         )
-        await agent.acall(student_id="12345")
+        await agent.call(student_id="12345")
 
 
 if __name__ == "__main__":
